@@ -2,10 +2,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 const URL = process.env.NEXT_PUBLIC_URL;
 
-export const getEstudianteServices = async (
-  setState: Function,
-  setLoader: Function
-) => {
+export const getEstudianteServices = async (setState: Function, setLoader: Function) => {
   await axios
     .get(URL + "/estudiante")
     .then((res) => {
@@ -13,10 +10,7 @@ export const getEstudianteServices = async (
       setLoader(false);
     })
     .catch((e) => {
-      Swal.fire({
-        title: "problemas en el servidor " + JSON.stringify(e),
-        icon: "error",
-      });
+      console.log(e);
     });
 };
 
@@ -42,17 +36,11 @@ export const postEstudianteServices = async (
         setLoader(true);
       })
       .catch((e) => {
-        Swal.fire({
-          title: "problemas en el servidor " + JSON.stringify(e),
-          icon: "error",
-        });
+        console.log(e);
       }));
 };
 
-export const deleteEstudianteServices = async (
-  dniEstudiante: number,
-  setLoader: Function
-) => {
+export const deleteEstudianteServices = async (dniEstudiante: number, setLoader: Function) => {
   dniEstudiante != null &&
     (await axios
       .delete(URL + "/estudiante/" + dniEstudiante)
@@ -64,10 +52,7 @@ export const deleteEstudianteServices = async (
         setLoader(true);
       })
       .catch((e) => {
-        Swal.fire({
-          title: "problemas en el servidor " + JSON.stringify(e),
-          icon: "error",
-        });
+        console.log(e);
       }));
 };
 
@@ -93,9 +78,6 @@ export const putEstudianteServices = async (
         setLoader(true);
       })
       .catch((e) => {
-        Swal.fire({
-          title: "problemas en el servidor " + JSON.stringify(e),
-          icon: "error",
-        });
+        console.log(e);
       }));
 };

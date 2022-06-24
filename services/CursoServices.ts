@@ -3,10 +3,7 @@ import Swal from "sweetalert2";
 
 const URL = process.env.NEXT_PUBLIC_URL;
 
-export const getCursoServices = async (
-  setState: Function,
-  setLoader: Function
-) => {
+export const getCursoServices = async (setState: Function, setLoader: Function) => {
   await axios
     .get(URL + "/curso")
     .then((res) => {
@@ -14,17 +11,11 @@ export const getCursoServices = async (
       setLoader(false);
     })
     .catch((e) => {
-      Swal.fire({
-        title: "problemas en el servidor " + JSON.stringify(e),
-        icon: "error",
-      });
+      console.log(e);
     });
 };
 
-export const postCursoServices = async (
-  nombre: string,
-  setLoader: Function
-) => {
+export const postCursoServices = async (nombre: string, setLoader: Function) => {
   nombre != "" &&
     (await axios
       .post(URL + "/curso", {
@@ -38,10 +29,7 @@ export const postCursoServices = async (
         setLoader(true);
       })
       .catch((e) => {
-        Swal.fire({
-          title: "problemas en el servidor " + JSON.stringify(e),
-          icon: "error",
-        });
+        console.log(e);
       }));
 };
 
@@ -57,18 +45,11 @@ export const deleteCursoServices = async (id: number, setLoader: Function) => {
         setLoader(true);
       })
       .catch((e) => {
-        Swal.fire({
-          title: "problemas en el servidor " + JSON.stringify(e),
-          icon: "error",
-        });
+        console.log(e);
       }));
 };
 
-export const putCursoServices = async (
-  id: number,
-  nombre: string,
-  setLoader: Function
-) => {
+export const putCursoServices = async (id: number, nombre: string, setLoader: Function) => {
   id != 0 &&
     nombre != "" &&
     (await axios
@@ -83,9 +64,6 @@ export const putCursoServices = async (
         setLoader(true);
       })
       .catch((e) => {
-        Swal.fire({
-          title: "problemas en el servidor " + JSON.stringify(e),
-          icon: "error",
-        });
+        console.log(e);
       }));
 };

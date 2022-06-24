@@ -1,10 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 const URL = process.env.NEXT_PUBLIC_URL;
-export const getUsuarioServices = async (
-  setState: Function,
-  setLoader: Function
-) => {
+export const getUsuarioServices = async (setState: Function, setLoader: Function) => {
   await axios
     .get(URL + "/usuario")
     .then((res) => {
@@ -12,10 +9,7 @@ export const getUsuarioServices = async (
       setLoader(false);
     })
     .catch((e) => {
-      Swal.fire({
-        title: "problemas en el servidor" + JSON.stringify(e),
-        icon: "error",
-      });
+      console.log(e);
     });
 };
 
@@ -50,17 +44,11 @@ export const postUsuarioServices = async (
         setLoader(true);
       })
       .catch((e) => {
-        Swal.fire({
-          title: "problemas en el servidor" + JSON.stringify(e),
-          icon: "error",
-        });
+        console.log(e);
       }));
 };
 
-export const deleteUsuarioServices = async (
-  dni: number,
-  setLoader: Function
-) => {
+export const deleteUsuarioServices = async (dni: number, setLoader: Function) => {
   dni != null &&
     (await axios
       .delete(URL + "/usuario/" + dni)
@@ -72,10 +60,7 @@ export const deleteUsuarioServices = async (
         setLoader(true);
       })
       .catch((e) => {
-        Swal.fire({
-          title: "problemas en el servidor" + JSON.stringify(e),
-          icon: "error",
-        });
+        console.log(e);
       }));
 };
 
@@ -111,9 +96,6 @@ export const putUsuarioServices = async (
         setLoader(true);
       })
       .catch((e) => {
-        Swal.fire({
-          title: "problemas en el servidor" + JSON.stringify(e),
-          icon: "error",
-        });
+        console.log(e);
       }));
 };

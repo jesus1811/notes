@@ -12,10 +12,7 @@ export const getNotaServices = async (
       setLoader(false);
     })
     .catch((e) => {
-      Swal.fire({
-        title: "problemas en el servidor " + JSON.stringify(e),
-        icon: "error",
-      });
+      console.log(e);
     });
 };
 
@@ -51,10 +48,7 @@ export const postNotaServices = async (
         setLoader(true);
       })
       .catch((e) => {
-        Swal.fire({
-          title: "problemas en el servidor " + JSON.stringify(e),
-          icon: "error",
-        });
+        console.log(e);
       }));
 };
 
@@ -69,10 +63,7 @@ export const deleteNotaServices = async (id: number, setLoader: Function) => {
       setLoader(true);
     })
     .catch((e) => {
-      Swal.fire({
-        title: "problemas en el servidor " + JSON.stringify(e),
-        icon: "error",
-      });
+      console.log(e);
     });
 };
 
@@ -109,9 +100,6 @@ export const putNotaServices = async (
         setLoader(true);
       })
       .catch((e) => {
-        Swal.fire({
-          title: "problemas en el servidor " + JSON.stringify(e),
-          icon: "error",
-        });
+        console.log(e);
       }));
 };
